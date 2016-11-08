@@ -9,5 +9,6 @@ var todoSchema = new Schema({
 });
 
 var Todo = mongoose.model('Todo', todoSchema);
-
+//the Grand 'Todo' has been created
 module.exports = Todo;
+//now it's available to be used elsewhere
