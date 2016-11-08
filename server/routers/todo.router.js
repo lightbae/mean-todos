@@ -27,7 +27,7 @@ router.post('/todos', function(req, res){
       });
     }
     res.status(201).json({
-      msg: 'successfully creaed todo'
+      msg: 'successfully created todo'
     });
   });
 });
