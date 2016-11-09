@@ -18,6 +18,18 @@ router.get('/todos', function(req, res){
     });
   });
 });
+router.get('/todos/description/:desc', function(req, res){
+  Todo.find({"description":req.params.desc}, function(err, todoDescs){
+    if(err){
+      res.status(500).json({
+        err:err
+      });
+    }
+    res.status(200).json({
+      todos: todoDescs
+    });
+  });
+});
 router.get('/todos/:id', function(req, res){
   Todo.find({_id:req.params.id}, function(err, foundTodo){
     if(err){
