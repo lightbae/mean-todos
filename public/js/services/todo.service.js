@@ -12,7 +12,7 @@
       get: getAllTodos,
       create: createOneTodo,
       update: updateOneTodo,
-      Delete: deleteOneTodo,
+      delete: deleteOneTodo,
     };
     function init(){ //this is going to make our first data req on file load
       $http.get('/todos')
@@ -44,6 +44,14 @@
              console.log(err);
            });
     }
-    function deleteOneTodo(index){}
+    function deleteOneTodo(index, deletedTodo){
+      $http.delete('/todos/' + deletedTodo._id)
+           .then(function(){
+             todos.splice(index,1);
+           })
+           .catch(function(err){
+             console.log(err);
+           });
+    }
   }
 }());
